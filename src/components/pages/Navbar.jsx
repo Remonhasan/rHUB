@@ -1,6 +1,11 @@
 import React from 'react'
+import { FaShoppingCart, FaTimes } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
+    const cart = useSelector((state) => state.cart);
+    
     return (
         <div className='mt-3'>
             <nav className="navbar navbar-expand-lg navbar navbar-light nav-section">
@@ -28,9 +33,21 @@ export default function Navbar() {
                                 <a className="dropdown-item" href="#">Deep Learning</a>
                             </div>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Cart</a>
-                        </li>
+                        
+                        <Link to="/cart">
+                            <div className="relative">
+                                <a className="nav-link" href="#">
+                                <FaShoppingCart className="text-xl" />
+                                {cart.length > 0 && (
+                                    <span className="position-absolute top-0 start-100 translate-middle badge bg-success rounded-pill">
+                                    {cart.length}
+                                    </span>
+                                )}
+                                </a>
+                        </div>
+                       </Link>
+                      
+                        
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
