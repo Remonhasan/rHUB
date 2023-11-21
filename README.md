@@ -21,10 +21,8 @@ git clone https://github.com/Remonhasan/rHUB.git
 ### Install npm 
 ```
 npm install
-
 ```
 ### Start the application
-
 ```
 npm start
 #or
